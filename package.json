@@ -5,10 +5,10 @@
   "type": "module",
   "homepage": "https://meghnapriyadarshi.github.io/my-portfolio",
   "scripts": {
-     "dev": "vite",
+    "dev": "vite",
     "build": "vite build",
-    "build:gh": "vite build --base /my-portfolio/",
-    "predeploy": "npm run build:gh",
+    "lint": "eslint .",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
