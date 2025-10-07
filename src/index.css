@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+    scroll-behavior: smooth;
+}
+html,body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  background: #000000;
+  color: #ffffff;
+}
+@layer components{
+  .btn{
+    @apply text-button font-body bg-primary text-black 
+           px-6 py-3  hover:bg-secondary hover:text-white
+           transition font-medium rounded-[50px];
+  }
+  .mask-image {
+    -webkit-mask-image: url(src/assets/Path.png);
+    mask-image: url(src/assets/Path.png);
+    mask-mode: alpha;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+p{
+  font-size: 18px;
+  line-height: 26px;
+}
+}
