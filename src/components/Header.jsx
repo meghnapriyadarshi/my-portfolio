@@ -1,35 +1,76 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link as ScrollLink } from "react-scroll";
 
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+   const headerRef = useRef(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
+
+   // Measure header height after render
+  useEffect(() => {
+    if (headerRef.current) {
+      setHeaderHeight(headerRef.current.getBoundingClientRect().height);
+    }
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-secondary shadow-md">
+    <header ref={headerRef} className="sticky top-0 z-50 bg-secondary shadow-md">
       <div className="container mx-auto flex justify-between items-center px-6 md:px-12 py-4">
         {/* Logo */}
         <div className="logo text-primary font-bold">
-          <a href="#home" className="flex items-center gap-1 text-[55px] leading-none">
+         <ScrollLink
+            to="home"
+            smooth={true}
+            duration={500}
+            className="flex items-center gap-1 text-[55px] leading-none cursor-pointer"
+          >
             M<span className="text-white">P</span>
-          </a>
+          </ScrollLink>
         </div>
 
         {/* Desktop Navbar */}
-        <nav className="hidden md:flex gap-8">
-          <a href="#home" className="text-[18px] hover:text-primary transition-colors">
+         <nav className="hidden md:flex gap-8">
+          <ScrollLink
+            to="home"
+            smooth={true}
+            duration={500}
+             offset={-headerHeight}
+            className="text-[18px] hover:text-primary transition-colors cursor-pointer"
+          >
             Home
-          </a>
-          <a href="#about" className="text-[18px] hover:text-primary transition-colors">
+          </ScrollLink>
+          <ScrollLink
+            to="about"
+            smooth={true}
+            duration={500}
+             offset={-headerHeight}
+            className="text-[18px] hover:text-primary transition-colors cursor-pointer"
+          >
             About
-          </a>
-          <a href="#skills" className="text-[18px] hover:text-primary transition-colors">
+          </ScrollLink>
+          <ScrollLink
+            to="skills"
+            smooth={true}
+            duration={500}
+            offset={-headerHeight}
+            className="text-[18px] hover:text-primary transition-colors cursor-pointer"
+          >
             Services
-          </a>
-          <a href="#contact" className="text-[18px] hover:text-primary transition-colors">
+          </ScrollLink>
+          <ScrollLink
+            to="contact"
+            smooth={true}
+            duration={500}
+            offset={-headerHeight}
+            className="text-[18px] hover:text-primary transition-colors cursor-pointer"
+          >
             Contact
-          </a>
+          </ScrollLink>
         </nav>
+
+      
 
         {/* Mobile Menu Button */}
         <button
@@ -66,35 +107,48 @@ export default function Header() {
 
         {/* Menu Links */}
         <nav className="flex flex-col items-start gap-3 mt-6 px-8 text-lg">
-          <a
-            href="#home"
-            className="hover:text-primary transition-colors"
+          <ScrollLink
+            to="home"
+            smooth={true}
+            duration={500}
+            offset={-headerHeight}
             onClick={() => setIsOpen(false)}
+            className="hover:text-primary transition-colors cursor-pointer"
           >
             Home
-          </a>
-          <a
-            href="#about"
-            className="hover:text-primary transition-colors"
+          </ScrollLink>
+          <ScrollLink
+            to="about"
+            smooth={true}
+            duration={500}
+            offset={-headerHeight}
             onClick={() => setIsOpen(false)}
+            className="hover:text-primary transition-colors cursor-pointer"
           >
             About
-          </a>
-          <a
-            href="#skills"
-            className="hover:text-primary transition-colors"
+          </ScrollLink>
+          <ScrollLink
+            to="skills"
+            smooth={true}
+            duration={500}
+            offset={-headerHeight}
             onClick={() => setIsOpen(false)}
+            className="hover:text-primary transition-colors cursor-pointer"
           >
             Services
-          </a>
-          <a
-            href="#contact"
-            className="hover:text-primary transition-colors"
+          </ScrollLink>
+          <ScrollLink
+            to="contact"
+            smooth={true}
+            duration={500}
+            offset={-headerHeight}
             onClick={() => setIsOpen(false)}
+            className="hover:text-primary transition-colors cursor-pointer"
           >
             Contact
-          </a>
+          </ScrollLink>
         </nav>
+      
       </div>
     </header>
   );

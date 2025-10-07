@@ -1,7 +1,7 @@
 export default function Aboutme (){
     return(
         <>
-        <section data-aos="zoom-in" id="about" className="scroll-mt-16 pt-12 md:pt-24">
+        <section data-aos="zoom-in" id="about" className="scroll-mt-[90px] pt-12 md:pt-24">
             <div className="container pb-0 px-[20px] md:px-12">
                 <div className="flex flex-wrap">
                    <div className="w-full">
