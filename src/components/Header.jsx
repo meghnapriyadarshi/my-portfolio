@@ -24,6 +24,7 @@ export default function Header() {
             to="home"
             smooth={true}
             duration={500}
+            offset={-headerHeight}
             className="flex items-center gap-1 text-[55px] leading-none cursor-pointer"
           >
             M<span className="text-white">P</span>
